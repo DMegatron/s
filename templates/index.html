@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Screen & Text Feed</title>
+    <meta http-equiv="refresh" content="5">
+    <style>
+        img {
+            max-width: 90%;
+            border: 2px solid #444;
+            margin-bottom: 20px;
+        }
+        pre {
+            white-space: pre-wrap;
+            background: #eee;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Live Screen Capture</h2>
+    {% if data.filename %}
+        <img src="{{ url_for('uploaded_file', filename=data.filename) }}" alt="Screen Capture">
+        <h3>Extracted Text</h3>
+        <pre>{{ data.text }}</pre>
+    {% else %}
+        <p>No data received yet.</p>
+    {% endif %}
+</body>
+</html>
